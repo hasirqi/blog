@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/blog
+  branch: main
+
+media_folder: "content/uploads"
+public_folder: "./content/uploads"
+
+locale: "zh_Hans"
+publish_mode: editorial_workflow
+
+collections:
+  - name: "posts_index"
+    label: "发布清单（主站读取）"
+    files:
+      - label: "全部文章"
+        name: "posts"
+        file: "content/posts.json"
+        fields:
+          - label: "文章列表"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.id}} - {{fields.date}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "例如：post-2026-04-06-family-trip" }
+              - { label: "日期", name: "date", widget: "string", hint: "YYYY-MM-DD" }
+              - { label: "分类", name: "category", widget: "select", options: ["work", "life", "hobby", "thoughts"] }
+              - { label: "首页精选", name: "featured", widget: "boolean", default: true }
+              - { label: "封面渐变", name: "gradient", widget: "string", required: false, hint: "linear-gradient(135deg, #B85C38 0%, #5B7B6A 100%)" }
+              - label: "阅读时长"
+                name: "readingTime"
+                widget: "object"
+                fields:
+                  - { label: "中文", name: "zh", widget: "string", default: "5 分钟" }
+                  - { label: "English", name: "en", widget: "string", default: "5 min" }
+                  - { label: "日本語", name: "ja", widget: "string", default: "5分で読めます" }
+              - label: "多语言内容"
+                name: "translations"
+                widget: "object"
+                fields:
+                  - label: "中文"
+                    name: "zh"
+                    widget: "object"
+                    fields:
+                      - { label: "标题", name: "title", widget: "string" }
+                      - { label: "摘要", name: "excerpt", widget: "text" }
+                      - { label: "正文", name: "body", widget: "markdown" }
+                  - label: "English"
+                    name: "en"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Excerpt", name: "excerpt", widget: "text" }
+                      - { label: "Body", name: "body", widget: "markdown" }
+                  - label: "日本語"
+                    name: "ja"
+                    widget: "object"
+                    fields:
+                      - { label: "タイトル", name: "title", widget: "string" }
+                      - { label: "概要", name: "excerpt", widget: "text" }
+                      - { label: "本文", name: "body", widget: "markdown" }
