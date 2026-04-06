@@ -1,0 +1,91 @@
+{
+  "posts": [
+    {
+      "id": "post-2026-03-15-embedded-ai",
+      "category": "work",
+      "date": "2026-03-15",
+      "featured": true,
+      "gradient": "linear-gradient(135deg, #B85C38 0%, #5B7B6A 100%)",
+      "readingTime": {
+        "zh": "8 分钟",
+        "en": "8 min",
+        "ja": "8分で読めます"
+      },
+      "translations": {
+        "zh": {
+          "title": "二十年嵌入式：从单片机到AI时代的蜕变",
+          "excerpt": "从留学生到汽车ECU工程师，我把二十年的技术积累和成长故事，留给未来的孩子们。",
+          "body": "2005年来到日本，我在RL78和C语言中一步步成长为车载软件工程师。\n\n这些年从写底层驱动，到管理A-SPICE流程，再到尝试AI辅助开发，每一次变化都让我重新理解“学习”这件事。\n\n如果你也在职业路上迷茫，记住：基础扎实 + 持续好奇心，永远不过时。"
+        },
+        "en": {
+          "title": "20 Years in Embedded: From MCU Days to the AI Era",
+          "excerpt": "From an international student to an automotive ECU engineer, this is my 20-year learning journey.",
+          "body": "I came to Japan in 2005 and started from RL78 and plain C.\n\nOver the years, I moved from low-level coding to A-SPICE process work and now AI-assisted development.\n\nMy biggest lesson: strong fundamentals and curiosity always win in the long run."
+        },
+        "ja": {
+          "title": "組込み20年：マイコンからAI時代へ",
+          "excerpt": "留学生から車載ECUエンジニアへ。20年の学びと成長を記録します。",
+          "body": "2005年に来日し、RL78とC言語から組込み開発を始めました。\n\n低レイヤ開発、A-SPICEプロセス、そしてAI活用まで、技術の変化と共に学び続けています。\n\n一番の気づきは、基礎力と好奇心が最強だということです。"
+        }
+      }
+    },
+    {
+      "id": "post-2026-02-28-family-ski",
+      "category": "life",
+      "date": "2026-02-28",
+      "featured": true,
+      "gradient": "linear-gradient(135deg, #5B7B6A 0%, #8DB48E 100%)",
+      "readingTime": {
+        "zh": "5 分钟",
+        "en": "5 min",
+        "ja": "5分で読めます"
+      },
+      "translations": {
+        "zh": {
+          "title": "群马滑雪记：带三个孩子征服初级道",
+          "excerpt": "从哭鼻子到笑着滑下坡，这次家庭滑雪让我重新理解“成长”。",
+          "body": "第一次带三个孩子去滑雪，说实话我和妻子都很紧张。\n\n孩子们在跌倒、害怕、再尝试中，慢慢学会控制方向，也学会了不轻易放弃。\n\n这一趟旅程最大的收获，不是滑得多快，而是全家一起面对挑战。"
+        },
+        "en": {
+          "title": "Gunma Ski Trip: Three Kids, One Beginner Slope",
+          "excerpt": "From tears to laughter, our first family ski trip became a memory we will never forget.",
+          "body": "Taking three young kids to a ski resort was chaotic and beautiful.\n\nThey fell, cried, tried again, and finally glided down the beginner slope with confidence.\n\nThe best part was not technique — it was growing together as a family."
+        },
+        "ja": {
+          "title": "群馬スキー記：3人の子どもと初級コースへ",
+          "excerpt": "泣いていた子どもたちが、最後には笑顔で滑れた家族の思い出です。",
+          "body": "3人の小さな子どもを連れての初スキーは、想像以上に大変でした。\n\n転んで、泣いて、また挑戦して、最後には自分で滑れるようになりました。\n\n技術以上に、家族で挑戦を共有できたことが宝物です。"
+        }
+      }
+    },
+    {
+      "id": "post-2026-01-20-ai-photo",
+      "category": "hobby",
+      "date": "2026-01-20",
+      "featured": true,
+      "gradient": "linear-gradient(135deg, #C4956A 0%, #B85C38 100%)",
+      "readingTime": {
+        "zh": "6 分钟",
+        "en": "6 min",
+        "ja": "6分で読めます"
+      },
+      "translations": {
+        "zh": {
+          "title": "用AI修复老照片：让父母的青春重现",
+          "excerpt": "把泛黄的旧照片修复成清晰影像，给父母做了一份最有温度的新年礼物。",
+          "body": "我用GFPGAN、CodeFormer和ComfyUI做了一套老照片修复流程。\n\n当母亲看到修复后的照片时，她沉默了很久，说“这真是我们年轻时候的样子”。\n\n技术最打动人的时刻，是它帮我们留住会消失的回忆。"
+        },
+        "en": {
+          "title": "Restoring Old Photos with AI: Bringing Youth Back",
+          "excerpt": "I restored old family photos and turned them into a heartfelt gift for my parents.",
+          "body": "Using GFPGAN, CodeFormer, and ComfyUI, I built a full restoration workflow for damaged old photos.\n\nWhen my mother saw the restored images, she went silent and then said, “This is exactly how we looked.”\n\nThat is when technology feels truly meaningful."
+        },
+        "ja": {
+          "title": "AIで古い写真を修復：両親の青春を取り戻す",
+          "excerpt": "古い家族写真を修復し、両親への心のこもった贈り物にしました。",
+          "body": "GFPGAN、CodeFormer、ComfyUIを使って古写真の修復フローを作りました。\n\n修復後の写真を見た母はしばらく黙ってから、「本当に若い頃の私たちだね」と言いました。\n\n技術が一番美しいのは、思い出を守れる瞬間だと感じます。"
+        }
+      }
+    }
+  ]
+}

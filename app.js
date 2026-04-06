@@ -273,8 +273,8 @@ const i18n = {
   }
 };
 
-// ---- Article Data ----
-const articles = [
+// ---- Default Article Data (Fallback) ----
+const defaultArticles = [
   {
     id: 'article-1',
     category: 'work',
@@ -328,6 +328,8 @@ const articles = [
 // ---- State ----
 let currentLang = 'zh';
 let currentPage = 'home';
+let articleCatalog = [...defaultArticles];
+let currentDynamicArticle = null;
 
 // ---- Navigation (SPA) ----
 function navigateTo(pageId) {
@@ -343,6 +345,14 @@ function navigateTo(pageId) {
   nav.classList.remove('open');
   // Re-trigger fade-in animations
   setTimeout(() => observeFadeIns(), 100);
+}
+
+function openArticle(articleId) {
+  const article = articleCatalog.find(item => item.id === articleId);
+  if (!article) return;
+  currentDynamicArticle = article;
+  renderDynamicArticle(article);
+  navigateTo('article');
 }
 
 function filterArticles(category) {
@@ -368,7 +378,7 @@ function filterCategory(btn, category) {
 function renderArticleGrid(filter = 'all') {
   const grid = document.getElementById('articles-grid');
   if (!grid) return;
-  const filtered = filter === 'all' ? articles : articles.filter(a => a.category === filter);
+  const filtered = filter === 'all' ? articleCatalog : articleCatalog.filter(a => a.category === filter);
   const t = i18n[currentLang] || i18n.zh;
   const catMap = { work: t['cat.work'], life: t['cat.life'], hobby: t['cat.hobby'], thoughts: t['cat.thoughts'] };
 
@@ -383,12 +393,99 @@ function renderArticleGrid(filter = 'all') {
           <span>${a.date}</span>
         </div>
         <h3 class="card-title">
-          <a href="#" onclick="navigateTo('${a.id}'); return false;">${t[a.titleKey] || a.titleKey}</a>
+          <a href="#" onclick="openArticle('${a.id}'); return false;">${getLocalizedValue(a, 'title')}</a>
         </h3>
-        <p class="card-excerpt">${t[a.excerptKey] || a.excerptKey}</p>
+        <p class="card-excerpt">${getLocalizedValue(a, 'excerpt')}</p>
       </div>
     </article>
   `).join('');
+}
+
+function renderFeaturedGrid() {
+  const grid = document.getElementById('featured-grid');
+  if (!grid) return;
+  const t = i18n[currentLang] || i18n.zh;
+  const catMap = { work: t['cat.work'], life: t['cat.life'], hobby: t['cat.hobby'], thoughts: t['cat.thoughts'] };
+  const featured = articleCatalog
+    .filter(a => a.featured)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 3);
+
+  grid.innerHTML = featured.map((a, index) => `
+    <article class="card ${index === 0 ? 'card--featured' : ''} fade-in visible">
+      <div class="card-image">
+        <div style="width:100%;height:100%;background:${a.gradient || 'linear-gradient(135deg, #B85C38 0%, #5B7B6A 100%)'};"></div>
+      </div>
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="card-category">${catMap[a.category] || a.category}</span>
+          <span>${a.date}</span>
+          ${a.readingTime ? `<span>${a.readingTime[currentLang] || a.readingTime.zh || ''}</span>` : ''}
+        </div>
+        <h3 class="card-title">
+          <a href="#" onclick="openArticle('${a.id}'); return false;">${getLocalizedValue(a, 'title')}</a>
+        </h3>
+        <p class="card-excerpt">${getLocalizedValue(a, 'excerpt')}</p>
+      </div>
+    </article>
+  `).join('');
+}
+
+function renderDynamicArticle(article) {
+  const t = i18n[currentLang] || i18n.zh;
+  const catMap = { work: t['cat.work'], life: t['cat.life'], hobby: t['cat.hobby'], thoughts: t['cat.thoughts'] };
+  const categoryEl = document.getElementById('dynamic-article-category');
+  const titleEl = document.getElementById('dynamic-article-title');
+  const dateEl = document.getElementById('dynamic-article-date');
+  const readingEl = document.getElementById('dynamic-article-reading');
+  const bodyEl = document.getElementById('dynamic-article-body');
+  if (!categoryEl || !titleEl || !dateEl || !readingEl || !bodyEl) return;
+
+  categoryEl.textContent = catMap[article.category] || article.category;
+  titleEl.textContent = getLocalizedValue(article, 'title');
+  dateEl.textContent = article.date;
+  readingEl.textContent = article.readingTime?.[currentLang] || article.readingTime?.zh || t['meta.min5'];
+  bodyEl.innerHTML = formatBodyToHtml(getLocalizedValue(article, 'body'));
+}
+
+function formatBodyToHtml(text) {
+  if (!text) return '<p>暂无内容。</p>';
+  return text.split(/\n{2,}/)
+    .map(paragraph => paragraph.trim())
+    .filter(Boolean)
+    .map(paragraph => `<p>${paragraph.replace(/\n/g, '<br>')}</p>`)
+    .join('');
+}
+
+function getLocalizedValue(article, field) {
+  if (article.translations && article.translations[currentLang] && article.translations[currentLang][field]) {
+    return article.translations[currentLang][field];
+  }
+  if (article.translations && article.translations.zh && article.translations.zh[field]) {
+    return article.translations.zh[field];
+  }
+  const t = i18n[currentLang] || i18n.zh;
+  if (field === 'title' && article.titleKey) return t[article.titleKey] || article.titleKey;
+  if (field === 'excerpt' && article.excerptKey) return t[article.excerptKey] || article.excerptKey;
+  if (field === 'body' && article.bodyKey) return t[article.bodyKey] || article.bodyKey;
+  return '';
+}
+
+async function loadContentFromJson() {
+  try {
+    const res = await fetch('./content/posts.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('posts.json not found');
+    const data = await res.json();
+    if (Array.isArray(data.posts) && data.posts.length > 0) {
+      articleCatalog = data.posts.map(item => ({
+        ...item,
+        featured: item.featured !== false
+      }));
+    }
+  } catch (error) {
+    console.warn('Use fallback article data:', error.message);
+    articleCatalog = [...defaultArticles];
+  }
 }
 
 // ---- Language Switching ----
@@ -425,6 +522,10 @@ function setLang(lang) {
     const activeFilter = document.querySelector('.filter-btn.active');
     const cat = activeFilter?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1] || 'all';
     renderArticleGrid(cat);
+  }
+  renderFeaturedGrid();
+  if (currentPage === 'article' && currentDynamicArticle) {
+    renderDynamicArticle(currentDynamicArticle);
   }
 }
 
@@ -489,7 +590,9 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ---- Init ----
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadContentFromJson();
   observeFadeIns();
+  renderFeaturedGrid();
   renderArticleGrid('all');
 });

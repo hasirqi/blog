@@ -90,85 +90,8 @@
           <a href="#" class="section-link" onclick="navigateTo('archive'); return false;" data-i18n="section.viewAll">查看全部 →</a>
         </div>
 
-        <div class="featured-grid">
-          <!-- Featured Large Card -->
-          <article class="card card--featured fade-in">
-            <div class="card-image">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg, #B85C38 0%, #5B7B6A 100%);display:flex;align-items:center;justify-content:center;">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                  <circle cx="40" cy="40" r="30" stroke="white" stroke-width="1.5" opacity="0.5"/>
-                  <path d="M30 35c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" stroke="white" stroke-width="1.5" fill="none"/>
-                  <circle cx="40" cy="50" r="3" fill="white" opacity="0.7"/>
-                </svg>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-category" data-i18n="cat.work">工作</span>
-                <span>2026-03-15</span>
-                <span data-i18n="meta.min">8 分钟</span>
-              </div>
-              <h3 class="card-title">
-                <a href="#" onclick="navigateTo('article-1'); return false;" data-i18n="article1.title">
-                  二十年嵌入式：从单片机到AI时代的蜕变
-                </a>
-              </h3>
-              <p class="card-excerpt" data-i18n="article1.excerpt">
-                2005年来到日本，从一个懵懂的留学生到汽车ECU软件工程师。回顾这二十年在嵌入式领域的摸爬滚打，分享那些踩过的坑和收获的成长，以及AI时代带来的新机遇。
-              </p>
-            </div>
-          </article>
-
-          <!-- Small Card 1 -->
-          <article class="card fade-in">
-            <div class="card-image">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg, #5B7B6A 0%, #8DB48E 100%);display:flex;align-items:center;justify-content:center;">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  <path d="M24 8L28 20h12L30 28l4 12-10-8-10 8 4-12L8 20h12z" stroke="white" stroke-width="1.5" fill="none"/>
-                </svg>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-category" data-i18n="cat.life">生活</span>
-                <span>2026-02-28</span>
-              </div>
-              <h3 class="card-title">
-                <a href="#" onclick="navigateTo('article-2'); return false;" data-i18n="article2.title">
-                  群马滑雪记：带三个孩子征服初级道
-                </a>
-              </h3>
-              <p class="card-excerpt" data-i18n="article2.excerpt">
-                今年冬天带三个孩子第一次去滑雪场。从哭鼻子到笑着冲下山坡，记录这段珍贵的家庭时光。
-              </p>
-            </div>
-          </article>
-
-          <!-- Small Card 2 -->
-          <article class="card fade-in">
-            <div class="card-image">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg, #C4956A 0%, #B85C38 100%);display:flex;align-items:center;justify-content:center;">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  <rect x="12" y="8" width="24" height="32" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
-                  <path d="M18 16h12M18 22h8M18 28h10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-category" data-i18n="cat.hobby">爱好</span>
-                <span>2026-01-20</span>
-              </div>
-              <h3 class="card-title">
-                <a href="#" onclick="navigateTo('article-3'); return false;" data-i18n="article3.title">
-                  用AI修复老照片：让父母的青春重现
-                </a>
-              </h3>
-              <p class="card-excerpt" data-i18n="article3.excerpt">
-                用GFPGAN和CodeFormer修复了一批八九十年代的老照片。看到父母年轻时的模样，眼眶不自觉地湿润了。
-              </p>
-            </div>
-          </article>
+        <div class="featured-grid" id="featured-grid">
+          <!-- Populated by JS -->
         </div>
       </section>
 
@@ -429,6 +352,24 @@
         </div>
       </article>
     </div>
+
+    <div class="page" id="page-article">
+      <article class="article-page container container--narrow">
+        <div class="article-header fade-in">
+          <span class="card-category" id="dynamic-article-category">生活</span>
+          <h1 id="dynamic-article-title">文章标题</h1>
+          <div class="article-meta-bar">
+            <span id="dynamic-article-date">2026-01-01</span>
+            <span>·</span>
+            <span id="dynamic-article-reading">5 分钟</span>
+          </div>
+        </div>
+        <div class="article-body fade-in" id="dynamic-article-body">
+          <p>内容加载中...</p>
+        </div>
+      </article>
+    </div>
+
 
   </main>
 
