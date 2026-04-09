@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "title": {
+      "zh": "二十年嵌入式：从单片机到AI时代的蜕变",
+      "ja": "組み込みの 20 年: シングルチップ マイクロコンピュータから AI 時代への変革",
+      "en": "Twenty Years of Embedded: Transformation from Single Chip Microcomputer to AI Era"
+    },
+    "description": {
+      "zh": "2005年来到日本，从一个懵懂的留学生到汽车ECU软件工程师。",
+      "ja": "私は 2005 年に日本に来て、無知な留学生から自動車 ECU ソフトウェア エンジニアになりました。",
+      "en": "I came to Japan in 2005 and went from being an ignorant international student to an automotive ECU software engineer."
+    }
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "zh": "2005年来到日本，从一个懵懂的留学生到汽车ECU软件工程师，我亲历了嵌入式技术的三次浪潮。",
+      "ja": "私は 2005 年に日本に来ました。無知な留学生から自動車ソフトウェア エンジニアになるまで、組み込みテクノロジーの 3 つの波を経験しました。",
+      "en": "I came to Japan in 2005. From an ignorant international student to an automotive software engineer, I experienced three waves of embedded technology."
+    },
+    {
+      "id": "era1",
+      "zh": "最初的几年，我每天的工作就是在RL78、H8这些8/16位单片机上写汇编和C代码。",
+      "ja": "最初の数年間、私の毎日の仕事は、RL78 や H8 などの 8/16 ビット マイクロコントローラーでアセンブリと C コードを書くことでした。",
+      "en": "In the first few years, my daily job was to write assembly and C code on 8/16-bit microcontrollers such as RL78 and H8."
+    },
+    {
+      "id": "era2",
+      "zh": "2015年前后，汽车电子爆发。ECU复杂度指数级增长，我们开始用AUTOSAR、FreeRTOS。",
+      "ja": "2015 年頃、自動車エレクトロニクスが爆発的に普及しました。 ECU の複雑さは指数関数的に増加しており、AUTOSAR と FreeRTOS を使用し始めました。",
+      "en": "Around 2015, automotive electronics exploded. The complexity of ECU has increased exponentially, and we started to use AUTOSAR and FreeRTOS."
+    }
+  ]
+}
