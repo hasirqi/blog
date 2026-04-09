@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勉強君 — 留给孩子们的精神资产</title>
+  <meta name="description" content="一位在日华人工程师的生活札记。记录工作、生活与业余爱好，留给孩子们的精神资产。">
+  <meta property="og:title" content="勉強君 Blog">
+  <meta property="og:description" content="一位在日华人工程师的生活札记">
+
+  <!-- Fonts: Zodiak (display, warm serif) + Satoshi (body, clean sans) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <!-- Noto Sans JP for Japanese text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23B85C38'/><text x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='white' font-family='serif'>勉</text></svg>">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="site-logo" onclick="navigateTo('home'); return false;" aria-label="勉強君 Home">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="var(--color-primary)"/>
+          <path d="M10 12h16M10 18h12M10 24h8" stroke="var(--color-text-inverse)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="28" cy="24" r="3" fill="var(--color-text-inverse)" opacity="0.7"/>
+        </svg>
+        <span class="site-logo-text">勉強君</span>
+      </a>
+
+      <nav class="nav-main" id="nav-main" aria-label="Main navigation">
+        <a href="#" onclick="navigateTo('home'); return false;" data-i18n="nav.home">首页</a>
+        <a href="#" onclick="navigateTo('archive'); return false;" data-i18n="nav.articles">文章</a>
+        <a href="#" onclick="navigateTo('about'); return false;" data-i18n="nav.about">关于</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button onclick="setLang('zh')" class="active" aria-label="中文">中</button>
+          <button onclick="setLang('en')" aria-label="English">EN</button>
+          <button onclick="setLang('ja')" aria-label="日本語">日</button>
+        </div>
+
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <button class="mobile-menu-toggle" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ========== HOME PAGE ========== -->
+    <div class="page active" id="page-home">
+
+      <!-- Hero -->
+      <section class="hero container">
+        <h1 class="hero-title fade-in" data-i18n="hero.title">
+          记录生活，留给未来
+        </h1>
+        <p class="hero-subtitle fade-in" data-i18n="hero.subtitle">
+          一位在日华人工程师的二十年札记。<br>在这里记录工作、生活与热爱，作为留给孩子们最珍贵的精神资产。
+        </p>
+        <div class="hero-cta fade-in">
+          <a href="#" class="btn btn-primary" onclick="navigateTo('archive'); return false;" data-i18n="hero.cta1">开始阅读</a>
+          <a href="#" class="btn btn-outline" onclick="navigateTo('about'); return false;" data-i18n="hero.cta2">认识我</a>
+        </div>
+      </section>
+
+      <!-- Featured Articles -->
+      <section class="content-section container" aria-labelledby="featured-heading">
+        <div class="section-header fade-in">
+          <h2 class="section-title" id="featured-heading" data-i18n="section.featured">精选文章</h2>
+          <a href="#" class="section-link" onclick="navigateTo('archive'); return false;" data-i18n="section.viewAll">查看全部 →</a>
+        </div>
+
+        <div class="featured-grid">
+          <!-- Featured Large Card -->
+          <article class="card card--featured fade-in">
+            <div class="card-image">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg, #B85C38 0%, #5B7B6A 100%);display:flex;align-items:center;justify-content:center;">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                  <circle cx="40" cy="40" r="30" stroke="white" stroke-width="1.5" opacity="0.5"/>
+                  <path d="M30 35c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" stroke="white" stroke-width="1.5" fill="none"/>
+                  <circle cx="40" cy="50" r="3" fill="white" opacity="0.7"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="cat.work">工作</span>
+                <span>2026-03-15</span>
+                <span data-i18n="meta.min">8 分钟</span>
+              </div>
+              <h3 class="card-title">
+                <a href="#" onclick="navigateTo('article-1'); return false;" data-i18n="article1.title">
+                  二十年嵌入式：从单片机到AI时代的蜕变
+                </a>
+              </h3>
+              <p class="card-excerpt" data-i18n="article1.excerpt">
+                2005年来到日本，从一个懵懂的留学生到汽车ECU软件工程师。回顾这二十年在嵌入式领域的摸爬滚打，分享那些踩过的坑和收获的成长，以及AI时代带来的新机遇。
+              </p>
+            </div>
+          </article>
+
+          <!-- Small Card 1 -->
+          <article class="card fade-in">
+            <div class="card-image">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg, #5B7B6A 0%, #8DB48E 100%);display:flex;align-items:center;justify-content:center;">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <path d="M24 8L28 20h12L30 28l4 12-10-8-10 8 4-12L8 20h12z" stroke="white" stroke-width="1.5" fill="none"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="cat.life">生活</span>
+                <span>2026-02-28</span>
+              </div>
+              <h3 class="card-title">
+                <a href="#" onclick="navigateTo('article-2'); return false;" data-i18n="article2.title">
+                  群马滑雪记：带三个孩子征服初级道
+                </a>
+              </h3>
+              <p class="card-excerpt" data-i18n="article2.excerpt">
+                今年冬天带三个孩子第一次去滑雪场。从哭鼻子到笑着冲下山坡，记录这段珍贵的家庭时光。
+              </p>
+            </div>
+          </article>
+
+          <!-- Small Card 2 -->
+          <article class="card fade-in">
+            <div class="card-image">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg, #C4956A 0%, #B85C38 100%);display:flex;align-items:center;justify-content:center;">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect x="12" y="8" width="24" height="32" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+                  <path d="M18 16h12M18 22h8M18 28h10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="cat.hobby">爱好</span>
+                <span>2026-01-20</span>
+              </div>
+              <h3 class="card-title">
+                <a href="#" onclick="navigateTo('article-3'); return false;" data-i18n="article3.title">
+                  用AI修复老照片：让父母的青春重现
+                </a>
+              </h3>
+              <p class="card-excerpt" data-i18n="article3.excerpt">
+                用GFPGAN和CodeFormer修复了一批八九十年代的老照片。看到父母年轻时的模样，眼眶不自觉地湿润了。
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section class="categories-section container" aria-labelledby="categories-heading">
+        <h2 class="section-title fade-in" id="categories-heading" data-i18n="section.categories">
+          记录生活的方方面面
+        </h2>
+        <p class="section-subtitle fade-in" data-i18n="section.categoriesSub">
+          在日本的每一天，都值得被珍惜
+        </p>
+        <div class="categories-grid">
+          <a href="#" class="category-card fade-in" onclick="filterArticles('work'); return false;">
+            <span class="category-icon" aria-hidden="true">⚙️</span>
+            <div class="category-name" data-i18n="cat.work">工作</div>
+            <div class="category-count" data-i18n="cat.workCount">嵌入式 · 汽车ECU · 技术管理</div>
+          </a>
+          <a href="#" class="category-card fade-in" onclick="filterArticles('life'); return false;">
+            <span class="category-icon" aria-hidden="true">🏠</span>
+            <div class="category-name" data-i18n="cat.life">生活</div>
+            <div class="category-count" data-i18n="cat.lifeCount">育儿 · 日常 · 文化差异</div>
+          </a>
+          <a href="#" class="category-card fade-in" onclick="filterArticles('hobby'); return false;">
+            <span class="category-icon" aria-hidden="true">🎨</span>
+            <div class="category-name" data-i18n="cat.hobby">爱好</div>
+            <div class="category-count" data-i18n="cat.hobbyCount">AI · 摄影 · 滑雪 · 编程</div>
+          </a>
+          <a href="#" class="category-card fade-in" onclick="filterArticles('thoughts'); return false;">
+            <span class="category-icon" aria-hidden="true">💭</span>
+            <div class="category-name" data-i18n="cat.thoughts">随想</div>
+            <div class="category-count" data-i18n="cat.thoughtsCount">感悟 · 育儿经 · 人生思考</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- About Teaser -->
+      <section class="about-teaser container" aria-labelledby="about-teaser-heading">
+        <div class="about-grid">
+          <div class="about-image-wrap fade-in">
+            <div class="img-placeholder">
+              <div style="width:100%;height:100%;background:linear-gradient(180deg, rgba(184,92,56,0.15) 0%, rgba(91,123,106,0.15) 100%);display:flex;align-items:center;justify-content:center;">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="opacity:0.4">
+                  <circle cx="60" cy="45" r="20" stroke="var(--color-text)" stroke-width="1.5"/>
+                  <path d="M30 95c0-16.6 13.4-30 30-30s30 13.4 30 30" stroke="var(--color-text)" stroke-width="1.5" fill="none"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="fade-in">
+            <h2 class="section-title" id="about-teaser-heading" data-i18n="about.heading">关于勉強君</h2>
+            <p class="about-quote" data-i18n="about.quote">
+              "只要紧跟行业趋势，持续创新，就一定能在这场技术变革中做大属于自己的蛋糕。"
+            </p>
+            <p class="about-text" data-i18n="about.teaser">
+              2005年来到日本，在嵌入式软件领域深耕近二十年。从单片机汇编到汽车ECU开发，从A-SPICE合规到AI时代的新探索。一个五口之家的父亲，三个孩子的启蒙者。在伊势崎市的日常里，寻找属于自己的技术梦想。
+            </p>
+            <a href="#" class="btn btn-outline" onclick="navigateTo('about'); return false;" data-i18n="about.cta">了解更多 →</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== ARCHIVE PAGE ========== -->
+    <div class="page" id="page-archive">
+      <section class="content-section container">
+        <div class="section-header fade-in">
+          <h1 class="section-title" data-i18n="archive.title">所有文章</h1>
+        </div>
+
+        <div class="archive-filters fade-in">
+          <button class="filter-btn active" onclick="filterCategory(this, 'all')" data-i18n="filter.all">全部</button>
+          <button class="filter-btn" onclick="filterCategory(this, 'work')" data-i18n="cat.work">工作</button>
+          <button class="filter-btn" onclick="filterCategory(this, 'life')" data-i18n="cat.life">生活</button>
+          <button class="filter-btn" onclick="filterCategory(this, 'hobby')" data-i18n="cat.hobby">爱好</button>
+          <button class="filter-btn" onclick="filterCategory(this, 'thoughts')" data-i18n="cat.thoughts">随想</button>
+        </div>
+
+        <div class="articles-grid" id="articles-grid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== ABOUT PAGE ========== -->
+    <div class="page" id="page-about">
+      <section class="about-page container container--narrow">
+        <div class="about-page-header fade-in">
+          <h1 data-i18n="aboutPage.title">关于勉強君</h1>
+          <p data-i18n="aboutPage.intro">
+            一位热爱钻研技术的嵌入式软件工程师。在AI时代的浪潮中，记录生活，沉淀思考，留给孩子们最好的礼物。
+          </p>
+        </div>
+
+        <div class="timeline fade-in">
+          <div class="timeline-item">
+            <div class="timeline-year">2005</div>
+            <div class="timeline-title" data-i18n="tl.2005.title">初来乍到</div>
+            <div class="timeline-text" data-i18n="tl.2005.text">怀揣梦想来到日本，开始了新的人生篇章。语言不通、文化陌生，一切从零开始。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year" data-i18n="tl.early.year">2013 - 2026</div>
+            <div class="timeline-title" data-i18n="tl.early.title">技术深耕</div>
+            <div class="timeline-text" data-i18n="tl.early.text">进入嵌入式软件领域，从C语言和单片机开始，逐步掌握汽车ECU开发、RL78汇编、HIL测试等技术。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-title" data-i18n="tl.2014.title">结婚成家</div>
+            <div class="timeline-text" data-i18n="tl.2014.text">5月20日步入婚姻殿堂。从此人生多了一份责任，也多了一份温暖。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year" data-i18n="tl.kids.year">2019 - 2024</div>
+            <div class="timeline-title" data-i18n="tl.kids.title">三个小生命</div>
+            <div class="timeline-text" data-i18n="tl.kids.text">陆续迎来三个孩子。忙碌而幸福的日子，既是工程师，也是三个孩子的启蒙老师。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-title" data-i18n="tl.2020.title">家人团聚</div>
+            <div class="timeline-text" data-i18n="tl.2020.text">9月，妻子和孩子们来到日本，一家人终于在长野县团聚。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year" data-i18n="tl.now.year">2024 - 至今</div>
+            <div class="timeline-title" data-i18n="tl.now.title">AI时代的新篇章</div>
+            <div class="timeline-text" data-i18n="tl.now.text">在サンデン株式会社担任技术项目经理。业余探索AI图像修复、iOS开发、视频创作。活在当下，在技术变革中找到属于自己的位置。</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="fade-in" style="max-width:65ch;margin-inline:auto;">
+          <h2 class="section-title" data-i18n="aboutPage.whyTitle">为什么写这个博客</h2>
+          <div class="article-body">
+            <p data-i18n="aboutPage.why1">
+              有一天，我突然意识到：孩子们长大后，可能不太记得爸爸年轻时的样子，不了解我们来到日本的故事，不知道这个家庭经历过什么。
+            </p>
+            <p data-i18n="aboutPage.why2">
+              于是我决定用文字记录下来。不是什么宏大叙事，只是一个普通在日华人家庭的日常——上班路上的风景，孩子的第一次滑雪，深夜debug的灵感，以及对未来的期待。
+            </p>
+            <p data-i18n="aboutPage.why3">
+              这些文字，就是我留给你们最珍贵的精神资产。希望多年以后，你们翻开这些页面，能感受到爸爸的用心。
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== ARTICLE PAGES ========== -->
+    <div class="page" id="page-article-1">
+      <article class="article-page container container--narrow">
+        <div class="article-header fade-in">
+          <span class="card-category" data-i18n="cat.work">工作</span>
+          <h1 data-i18n="article1.title">二十年嵌入式：从单片机到AI时代的蜕变</h1>
+          <div class="article-meta-bar">
+            <span>2026-03-15</span>
+            <span>·</span>
+            <span data-i18n="meta.min">8 分钟</span>
+          </div>
+        </div>
+        <div class="article-body fade-in">
+          <p data-i18n="a1.p1">2005年，当我第一次走进日本的嵌入式软件公司时，面前摆着的是一块RL78单片机开发板和一本厚厚的日文数据手册。那时候的我，日语还磕磕巴巴，C语言刚入门，对"嵌入式"三个字的理解，不过是"让硬件动起来"而已。</p>
+
+          <h2 data-i18n="a1.h1">从汇编到C的跃迁</h2>
+          <p data-i18n="a1.p2">最初的几年，我每天的工作就是在RL78上写汇编和C代码。寄存器操作、中断处理、内存管理——这些基础功打得很扎实。那时候没有AI辅助，debug全靠oscilloscope和printf，一个指针错误能让你折腾一整天。</p>
+          <p data-i18n="a1.p3">但正是这些年的积累，让我对底层硬件有了深刻的理解。当后来转向汽车ECU开发时，这些基础变成了我最大的竞争力。</p>
+
+          <blockquote data-i18n="a1.quote">
+            技术的本质不在于你用了多新的工具，而在于你对基础原理的理解有多深。
+          </blockquote>
+
+          <h2 data-i18n="a1.h2">汽车ECU与A-SPICE</h2>
+          <p data-i18n="a1.p4">进入汽车行业后，我接触到了A-SPICE（Automotive SPICE）这套流程标准。从软件需求分析到系统设计，从单元测试到集成测试，每一步都有严格的规范。这对习惯了"先写代码再说"的我来说，是一次思维方式的转变。</p>
+          <p data-i18n="a1.p5">VectorCAST成了我的常用工具，HIL（Hardware-in-the-Loop）测试让我理解了仿真与实车验证的差异。这些年在サンデン株式会社的项目管理经验，让我从一个纯技术人员成长为能够跨部门协调的技术项目经理。</p>
+
+          <h2 data-i18n="a1.h3">AI时代的新可能</h2>
+          <p data-i18n="a1.p6">如今，AI正在改变一切。Claude、Copilot这些工具让编码效率提升了数倍。但我更感兴趣的是，AI如何融入嵌入式系统——在边缘设备上做推理，用机器学习优化控制算法，这些都是让人兴奋的方向。</p>
+          <p data-i18n="a1.p7">对孩子们说：爸爸这二十年最大的感悟是，技术永远在变，但学习的热情不能变。保持好奇心，保持对世界的热爱，你们一定能找到属于自己的路。</p>
+
+          <div class="article-tags">
+            <span class="tag">#嵌入式</span>
+            <span class="tag">#ECU</span>
+            <span class="tag">#A-SPICE</span>
+            <span class="tag">#AI</span>
+            <span class="tag">#职业生涯</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="page" id="page-article-2">
+      <article class="article-page container container--narrow">
+        <div class="article-header fade-in">
+          <span class="card-category" data-i18n="cat.life">生活</span>
+          <h1 data-i18n="article2.title">群马滑雪记：带三个孩子征服初级道</h1>
+          <div class="article-meta-bar">
+            <span>2026-02-28</span>
+            <span>·</span>
+            <span data-i18n="meta.min5">5 分钟</span>
+          </div>
+        </div>
+        <div class="article-body fade-in">
+          <p data-i18n="a2.p1">群马县的冬天，是滑雪的好时节。我们一家五口，终于在今年冬天完成了第一次滑雪之旅。三个孩子，最大的六岁多，最小的刚满四岁——光是想象就知道这会是一场"战争"。</p>
+
+          <h2 data-i18n="a2.h1">出发前的忐忑</h2>
+          <p data-i18n="a2.p2">提前一周就开始准备：雪具租赁预约、防水手套、暖宝宝、零食包……妻子说我像是在准备一场军事行动。没办法，带三个小朋友出门，不做好万全准备真的不行。</p>
+
+          <h2 data-i18n="a2.h2">泪水与笑声</h2>
+          <p data-i18n="a2.p3">到了雪场，老大兴奋地冲出去，结果在雪地上摔了个四脚朝天。老二看到白茫茫一片，直接哭了——"太冷了，我要回家！"老三倒是一脸无所谓，在雪地里玩得不亦乐乎。</p>
+          <p data-i18n="a2.p4">经过教练的耐心指导，三个孩子终于能在初级道上慢慢滑下来了。看着他们从恐惧到享受的转变，我觉得这可能是今年最值得记录的时刻。</p>
+
+          <blockquote data-i18n="a2.quote">
+            带孩子滑雪最大的收获，不是技术，而是让他们学会面对恐惧，然后战胜它。
+          </blockquote>
+
+          <p data-i18n="a2.p5">回家的路上，三个孩子在车里秒睡。我和妻子相视一笑，虽然累得要命，但心里暖暖的。这就是生活中最美好的瞬间吧。</p>
+
+          <div class="article-tags">
+            <span class="tag">#滑雪</span>
+            <span class="tag">#群马</span>
+            <span class="tag">#亲子</span>
+            <span class="tag">#冬天</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="page" id="page-article-3">
+      <article class="article-page container container--narrow">
+        <div class="article-header fade-in">
+          <span class="card-category" data-i18n="cat.hobby">爱好</span>
+          <h1 data-i18n="article3.title">用AI修复老照片：让父母的青春重现</h1>
+          <div class="article-meta-bar">
+            <span>2026-01-20</span>
+            <span>·</span>
+            <span data-i18n="meta.min6">6 分钟</span>
+          </div>
+        </div>
+        <div class="article-body fade-in">
+          <p data-i18n="a3.p1">去年回国过年，从老家翻出了一大箱旧照片。泛黄的相纸，模糊的面孔——这些是爸妈年轻时的记忆，珍贵却脆弱。于是我决定用AI技术来修复它们。</p>
+
+          <h2 data-i18n="a3.h1">工具选择</h2>
+          <p data-i18n="a3.p2">经过一番研究，我选用了GFPGAN和CodeFormer两个开源模型。GFPGAN擅长面部细节恢复，CodeFormer在处理严重退化的照片时效果更好。后来又尝试了SUPIR，对高分辨率重建有惊人的效果。</p>
+          <p data-i18n="a3.p3">整个工作流程在ComfyUI上搭建，把几个模型串联起来，先做降噪和色彩修正，再做面部修复和超分辨率。作为嵌入式工程师，搭建这套pipeline的过程让我感到既新鲜又兴奋。</p>
+
+          <h2 data-i18n="a3.h2">当父母的青春重现</h2>
+          <p data-i18n="a3.p4">当我把修复后的照片发给妈妈时，电话那头沉默了很久。然后她说："这真的是我和你爸年轻时的样子啊……"那一刻，我觉得所有的折腾都值了。</p>
+
+          <blockquote data-i18n="a3.quote">
+            技术最动人的时刻，不是它有多强大，而是它帮你留住了那些即将消逝的记忆。
+          </blockquote>
+
+          <p data-i18n="a3.p5">我把修复后的照片打印成册，作为新年礼物送给了父母。也把这个技能教给了几个朋友——在我看来，这就是AI最美好的用途之一。</p>
+
+          <div class="article-tags">
+            <span class="tag">#AI</span>
+            <span class="tag">#GFPGAN</span>
+            <span class="tag">#照片修复</span>
+            <span class="tag">#ComfyUI</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="site-logo" onclick="navigateTo('home'); return false;">
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <rect width="36" height="36" rx="8" fill="var(--color-primary)"/>
+              <path d="M10 12h16M10 18h12M10 24h8" stroke="var(--color-text-inverse)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="28" cy="24" r="3" fill="var(--color-text-inverse)" opacity="0.7"/>
+            </svg>
+            <span class="site-logo-text">勉強君</span>
+          </a>
+          <p data-i18n="footer.desc">记录在日本的工作与生活，留给孩子们的精神资产。</p>
+        </div>
+
+        <div>
+          <div class="footer-heading" data-i18n="footer.nav">导航</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#" onclick="navigateTo('home'); return false;" data-i18n="nav.home">首页</a></li>
+            <li><a href="#" onclick="navigateTo('archive'); return false;" data-i18n="nav.articles">文章</a></li>
+            <li><a href="#" onclick="navigateTo('about'); return false;" data-i18n="nav.about">关于</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading" data-i18n="footer.categories">分类</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#" onclick="filterArticles('work'); return false;" data-i18n="cat.work">工作</a></li>
+            <li><a href="#" onclick="filterArticles('life'); return false;" data-i18n="cat.life">生活</a></li>
+            <li><a href="#" onclick="filterArticles('hobby'); return false;" data-i18n="cat.hobby">爱好</a></li>
+            <li><a href="#" onclick="filterArticles('thoughts'); return false;" data-i18n="cat.thoughts">随想</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 勉強君. All rights reserved.</span>
+        <span data-i18n="footer.madeWith">用 ❤️ 和代码搭建于群马県伊势崎市</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
